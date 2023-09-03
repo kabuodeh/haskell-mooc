@@ -20,8 +20,8 @@ import Mooc.Todo
 ------------------------------------------------------------------------------
 -- Ex 1: define variables one and two. They should have type Int and
 -- values 1 and 2, respectively.
-x1 = 3
-x2 = 5
+one = 3
+two = 5
 ------------------------------------------------------------------------------
 -- Ex 2: define the function double of type Integer->Integer. Double
 -- should take one argument and return it multiplied by two.
@@ -35,7 +35,7 @@ double x = x * 2
 -- four.
 
 quadruple :: Integer -> Integer
-quadruple x = double x * 4
+quadruple x = double x * 2
 
 ------------------------------------------------------------------------------
 -- Ex 4: define the function distance. It should take four arguments of
@@ -109,7 +109,7 @@ isZero _ = False
 
 sumTo :: Integer -> Integer
 sumTo 0 = 0
-sumTo n = 1 + sumTo(n-1)
+sumTo n = n + sumTo(n-1)
 ------------------------------------------------------------------------------
 -- Ex 10: power n k should compute n to the power k (i.e. n^k)
 -- Use recursion.
