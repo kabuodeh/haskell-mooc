@@ -61,9 +61,9 @@ distance x1 y1 x2 y2= sqrt((x1 - x2)^2 + (y1 - y2)^2)
 
 eeny :: Integer -> String
 eeny x = 
-if (even x == True)
- then "eeny"
- else "meeny"
+ if (even x == True)
+  then "eeny"
+  else "meeny"
 
 ------------------------------------------------------------------------------
 -- Ex 6: here's the function checkPassword from the course material.
