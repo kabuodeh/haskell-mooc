@@ -16,7 +16,11 @@ import Data.List
 -- Hint! pattern matching is your friend.
 
 binomial :: Integer -> Integer -> Integer
-binomial = todo
+binomial n 0 = 1
+binomial n k =
+ if (n == 0 && k > 0)
+  then 0
+  else binomial (n-1) (k) + binomial (n-1) (k-1)
 
 ------------------------------------------------------------------------------
 -- Ex 2: implement the odd factorial function. Odd factorial is like
@@ -27,7 +31,12 @@ binomial = todo
 --   oddFactorial 6 ==> 5*3*1 ==> 15
 
 oddFactorial :: Integer -> Integer
-oddFactorial = todo
+oddFactorial 0 = 1
+oddFactorial 1 = 1
+oddFactorial x = 
+ if (x `mod` 2 == 0)
+  then oddFactorial(x-1)
+  else x * oddFactorial(x-2)
 
 ------------------------------------------------------------------------------
 -- Ex 3: implement the Euclidean Algorithm for finding the greatest
@@ -59,7 +68,12 @@ oddFactorial = todo
 -- * https://en.wikipedia.org/wiki/Euclidean_algorithm
 
 myGcd :: Integer -> Integer -> Integer
-myGcd = todo
+myGcd a 0 = a
+myGcd 0 b = b
+myGcd a b = 
+ if (a > b)
+ then myGcd (a - b) b
+ else myGcd a (b - a)
 
 ------------------------------------------------------------------------------
 -- Ex 4: Implement the function leftpad which adds space characters
@@ -75,7 +89,10 @@ myGcd = todo
 -- * you can compute the length of a string with the length function
 
 leftpad :: String -> Int -> String
-leftpad = todo
+leftpad str 0 = str
+leftpad str len
+ | length str >= len = str
+leftpad str x = leftpad (" ") ((length str) - 1) ++ str
 
 ------------------------------------------------------------------------------
 -- Ex 5: let's make a countdown for a rocket! Given a number, you
@@ -90,9 +107,13 @@ leftpad = todo
 -- * you can use the show function to convert a number into a string
 -- * you'll probably need a recursive helper function
 
-countdown :: Integer -> String
-countdown = todo
+counter :: Integer -> String
+counter 1 = " 1... "
+counter x = " " ++ show x ++ "..." ++ counter(x-1)
 
+countdown :: Integer -> String
+countdown 0 = "Ready!" ++ "Liftoff!"
+countdown x = "Ready!" ++ counter x ++ "Liftoff!"
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
 -- smallest number (greater than 1) that divides the given number evenly.
@@ -118,7 +139,10 @@ smallestDivisor = todo
 -- Ps. 0 and 1 are not prime numbers
 
 isPrime :: Integer -> Bool
-isPrime = todo
+isPrime x =
+if (smallestDivisor x == x)
+ then True
+ else False
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
@@ -133,4 +157,7 @@ isPrime = todo
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost = todo
+biggestPrimeAtMost x =
+ if (isPrime x)
+  then x
+  else isPrime(x-1)
