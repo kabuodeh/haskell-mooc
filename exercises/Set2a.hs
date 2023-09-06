@@ -49,8 +49,7 @@ takeFinal n xs =
 --   updateAt 2 0 [4,5,6,7] ==>  [4,5,0,7]
 
 updateAt :: Int -> a -> [a] -> [a]
-updateAt 0 x xs = 
-updateAt _ x xs = 
+updateAt i x xs = 
 
 ------------------------------------------------------------------------------
 -- Ex 4: substring i j s should return the substring of s starting at
@@ -158,8 +157,8 @@ safeIndex xs i =
 --   eitherDiv 4 0   ==> Left "4/0"
 
 eitherDiv :: Integer -> Integer -> Either String Integer
-eitherDiv x y = Right (x `div` y)
 eitherDiv x 0 = Left (show x ++ "/" ++ show 0)
+eitherDiv x y = Right (x `div` y)
 
 ------------------------------------------------------------------------------
 -- Ex 11: implement the function addEithers, which combines two values of type
