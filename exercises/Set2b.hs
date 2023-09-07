@@ -92,7 +92,7 @@ leftpad :: String -> Int -> String
 leftpad str 0 = str
 leftpad str len
  | length str >= len = str
-leftpad str x = leftpad (" ") ((length str) - 1) ++ str
+leftpad str x = leftpad (" ") (x - (length str)) ++ str
 
 ------------------------------------------------------------------------------
 -- Ex 5: let's make a countdown for a rocket! Given a number, you
@@ -144,11 +144,12 @@ smallestDivisor x = findSD x 2
 -- Ps. 0 and 1 are not prime numbers
 
 isPrime :: Integer -> Bool
+isPrime 0 = False
+isPrime 1 = False
 isPrime x =
  if (smallestDivisor x == x)
   then True
   else False
-
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
 -- biggest prime number that is less than or equal to the given
