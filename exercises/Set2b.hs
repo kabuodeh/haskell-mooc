@@ -165,4 +165,4 @@ biggestPrimeAtMost :: Integer -> Integer
 biggestPrimeAtMost x =
  if (isPrime x)
   then x
-  else isPrime(x-1)
+  else biggestPrimeAtMost (x-1)
