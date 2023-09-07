@@ -129,9 +129,14 @@ countdown x = "Ready!" ++ counter x ++ "Liftoff!"
 --
 -- Hint: remember the mod function!
 
-smallestDivisor :: Integer -> Integer
-smallestDivisor = todo
+findSD :: Integer -> Integer -> Integer
+findSD x k
+ |x `mod` 2 == 0 = 2
+ |x `mod` k /= 0 = findSD x (k+1)
+ |x `mod` k == 0 = k
 
+smallestDivisor :: Integer -> Integer
+smallestDivisor x = findSD x 2
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
 -- is a prime number. Use the function smallestDivisor.
