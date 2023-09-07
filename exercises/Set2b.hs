@@ -72,8 +72,8 @@ myGcd a 0 = a
 myGcd 0 b = b
 myGcd a b = 
  if (a > b)
- then myGcd (a - b) b
- else myGcd a (b - a)
+  then myGcd (a - b) b
+  else myGcd a (b - a)
 
 ------------------------------------------------------------------------------
 -- Ex 4: Implement the function leftpad which adds space characters
@@ -145,9 +145,9 @@ smallestDivisor x = findSD x 2
 
 isPrime :: Integer -> Bool
 isPrime x =
-if (smallestDivisor x == x)
- then True
- else False
+ if (smallestDivisor x == x)
+  then True
+  else False
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
