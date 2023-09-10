@@ -101,7 +101,8 @@ palindrome = todo
 --   capitalize "goodbye cruel world" ==> "Goodbye Cruel World"
 
 capitalize :: String -> String
-capitalize = todo
+capitalize str = unwords (map capitalizeFirst (words str))
+  where capitalizeFirst word = toUpper (head word) : tail word
 
 ------------------------------------------------------------------------------
 -- Ex 6: powers k max should return all the powers of k that are less
@@ -118,7 +119,7 @@ capitalize = todo
 --   * the function takeWhile
 
 powers :: Int -> Int -> [Int]
-powers k max = todo
+powers k max = takeWhile (<= max) [k^x | x <- [0..max]]
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a functional while loop. While should be a function
@@ -141,7 +142,11 @@ powers k max = todo
 --     ==> Avvt
 
 while :: (a->Bool) -> (a->a) -> a -> a
-while check update value = todo
+while check update value = while :: (a->Bool) -> (a->a) -> a -> a
+while check update value =
+ if (check (value) == True)
+  then while (check) (update) (update (value))
+  else value
 
 ------------------------------------------------------------------------------
 -- Ex 8: another version of a while loop. This time, the check
